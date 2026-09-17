@@ -1,61 +1,72 @@
 #include <iostream>
 
-void add();
-void sub();
-void multiple();
-void divide();
-void factorls();
-void cub();
-void sqre();
-void squareroot();
-void cuberoot();
-
+void addition();
+void subtraction();
+void multiplication();
+void division();
+void factorial_input();
+int factorial_output(int num);
+void cube();
+void square();
+void square_root();
+void cube_root();
+void choice(std::string operation);
 
 int main(){
-    std::string operation[]={addition,subtraction,multiplication,division,factorial,cube,square,square_root,cube_root}
-
+    
     std::cout << "\t\tThis is a simple Calculator\n";
     std::cout << "\t\t\t\tBuild by Sarthak Khanal\n";
 
     std::cout << "Enter what do you want to calculate(+,-,/,*,! and more ): ";
+    std::string operation;
     std::getline(std::cin,operation);
     std::cout << "Selected the operation as " << operation;
     
-        switch(operation){
-        case '1': 
-            addition();
-            break;
-        case '2': 
-            subtraction();
-            break; 
-        case '3': 
-            multiplication();
-            break; 
-        case '4': 
-            division();
-            break; 
-        case '5': 
-            factorial();
-            break; 
-        case '6': 
-            cube();
-            break; 
-        case '7': 
-            square();
-            break; 
-        case '8': 
-            square_root();
-            break; 
-        case '9': 
-            cube_root();
-            break; 
-        default:
-            std::cout << "The operation is invalid";
+    choice(operation);
 
+    return 0;
+}
+
+void choice(std::string operation){
+    if(operation == "addition" || operation == "+"){
+        addition();
+    }
+    else if(operation == "subtraction" || operation == "-"||operation == "sub"){
+        subtraction();
+    }
+    else if(operation == "multiply" || operation == "multiplication" || operation == "*"){
+        multiplication();
+    }
+        
+    
+    else if(operation == "divide" || operation == "division" || operation == "/"){
+        division();
+    }
+        
+    
+    else if(operation == "factorial" || operation == "!"){
+        factorial_input();
+    }
+        
+    else if(operation == "cube"){
+        cube();
+    }
+        
+    else if(operation == "square"){
+        square();
+    }
+        
+    else if(operation == "cube root"){
+        cube_root();
+    }
+    else if(operation == "square root"){
+        square_root();
+    }
+
+    else {
+        std::cout << "The operation you selected is not available";
     }
     
-    
-    return 0;
 }
 
 void addition(){
@@ -107,15 +118,23 @@ void division(){
     std::cout << "The division is " << num1 / num2;
 }
 
-void factorial(){
-    int num
-
-    std::cout << "Enter the first number: ";
-    if (i=0,num>i,i++){
-        num= num*(num-i)
-    }
+void factorial_input(){
+    int num;
+    
+    std::cout << "Enter the number you want to factorial of: ";
     std::cin >> num;
+    std::cout << "The factorial is " << factorial_output(num);
+}
+int factorial_calculation(int num){
+    
 
-    std::cout << "The factorial is " << num;
+    if(num>1){
+        return (num*factorial_output(num-1));
+    }
+    else 
+    { 
+        return (1);
+    }
+
 }
 
