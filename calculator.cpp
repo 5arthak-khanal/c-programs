@@ -5,7 +5,7 @@ void subtraction();
 void multiplication();
 void division();
 void factorial_input();
-int factorial_output(int num);
+int factorial_calculation(int num);
 void cube();
 void square();
 void square_root();
@@ -123,13 +123,13 @@ void factorial_input(){
     
     std::cout << "Enter the number you want to factorial of: ";
     std::cin >> num;
-    std::cout << "The factorial is " << factorial_output(num);
+    std::cout << "The factorial is " << factorial_calculation(num);
 }
 int factorial_calculation(int num){
     
 
     if(num>1){
-        return (num*factorial_output(num-1));
+        return (num*factorial_calculation(num-1));
     }
     else 
     { 
