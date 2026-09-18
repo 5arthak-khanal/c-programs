@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 void addition();
 void subtraction();
@@ -6,9 +7,9 @@ void multiplication();
 void division();
 void factorial_input();
 int factorial_calculation(int num);
-void cube();
 void square();
 void square_root();
+void cube();
 void cube_root();
 void choice(std::string operation);
 
@@ -70,49 +71,48 @@ void choice(std::string operation){
 }
 
 void addition(){
-    int num1,num2;
+    float num1,num2;
 
-    std::cout << "Enter the first number: ";
-    std::cout << "Enter the second number: ";
-
+    std::cout << "\nEnter the first number: ";
     std::cin >> num1;
+
+    std::cout << "Enter the second number: ";
     std::cin >> num2;
 
     std::cout << "The sum is " << num1 + num2;
 }
 
 void subtraction(){
-    int num1,num2;
+    float num1,num2;
 
-    std::cout << "Enter the first number: ";
-    std::cout << "Enter the second number: ";
-    
-    
+    std::cout << "\nEnter the first number: ";
     std::cin >> num1;
-    std::cin >> num2;
 
-    std::cout << "The subtraction is " << num1 - num2;
+    std::cout << "Enter the second number: ";
+    std::cin >> num2;
+    
+    std::cout << "The sub is " << num1 - num2;
 }
 
 void multiplication(){
-    int num1,num2;
+    float num1,num2;
 
-    std::cout << "Enter the first number: ";
-    std::cout << "Enter the second number: ";
-
+    std::cout << "\nEnter the first number: ";
     std::cin >> num1;
+
+    std::cout << "Enter the second number: ";
     std::cin >> num2;
 
     std::cout << "The multiplication is " << num1 * num2;
 }
 
 void division(){
-    int num1,num2;
+    float num1,num2;
 
-    std::cout << "Enter the first number: ";
-    std::cout << "Enter the second number: ";
-
+    std::cout << "\nEnter the first number: ";
     std::cin >> num1;
+
+    std::cout << "Enter the second number: ";
     std::cin >> num2;
 
     std::cout << "The division is " << num1 / num2;
@@ -121,8 +121,9 @@ void division(){
 void factorial_input(){
     int num;
     
-    std::cout << "Enter the number you want to factorial of: ";
+    std::cout << "\nEnter the number you want to factorial of: ";
     std::cin >> num;
+
     std::cout << "The factorial is " << factorial_calculation(num);
 }
 int factorial_calculation(int num){
@@ -131,10 +132,45 @@ int factorial_calculation(int num){
     if(num>1){
         return (num*factorial_calculation(num-1));
     }
-    else 
+    else
     { 
         return (1);
     }
 
 }
 
+void square(){
+    float num,sqre;
+    
+    std::cout << "\nEnter the number you want to square of: ";
+    std::cin >> num;
+    sqre=pow(num,2);
+    std::cout << "The factorial is " << sqre;
+}
+
+void square_root(){
+    float num,squrt;
+    
+    std::cout << "\nEnter the number you want to factorial of: ";
+    std::cin >> num;
+    squrt=sqrt(num);
+    std::cout << "The factorial is " << squrt;
+}
+
+void cube(){
+    float num,cube;
+    
+    std::cout << "\nEnter the number you want to cube of: ";
+    std::cin >> num;
+    cube=pow(num,3);
+    std::cout << "The factorial is " << cube;
+}
+
+void cube_root(){
+    float num,cubrt;
+    
+    std::cout << "\nEnter the number you want to cube root of: ";
+    std::cin >> num;
+    cubrt=cbrt(num);
+    std::cout << "The factorial is " << cubrt;
+}
