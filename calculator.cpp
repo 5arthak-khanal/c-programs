@@ -13,12 +13,10 @@ void square();
 void square_root();
 void cube();
 void cube_root();
-void area_type();
-void area_rectangle();
-void area_triangle();
-void area_circle();
-void area_parallelogram();
-void square();
+void area_inputs();
+void area_calculations(float l,float b,float h,float r,std::string area);
+
+
 
 
 int main(){
@@ -78,7 +76,7 @@ void choice(std::string operation){
     }
 
     else if(operation == "area"){
-        area_type();
+        area_inputs();
     }
 
     else {
@@ -88,6 +86,69 @@ void choice(std::string operation){
     
 }
 
+//inputs//
+void area_inputs(){
+     float l,b,h,r;
+     std::string area;
+    
+     std::cout << "Enter the object: ";
+     std::cin >> area;
+
+
+    if(area == "triangle" || area == "rectangle"){
+            std::cout << "Enter the length: ";
+            std::cin >> l;
+
+            if(std::cin.fail()){
+                std::cout << "\nThe length you entered is not vaild.\n";
+                
+            }
+            std::cout << "Enter the breath: ";
+            std::cin >> b;
+
+            if(std::cin.fail()){
+                std::cout << "\nThe breath you entered is not vaild.\n";
+                
+         }
+                area_calculations(l,b,h,r,area);
+             }
+        else if(area == "circle"){
+                std::cout << "Enter the radius: ";
+                std::cin >> r;
+            
+                 if(std::cin.fail()){
+                    std::cout << "\nThe breath you entered is not vaild.\n";
+                    
+            }
+                area_calculations(l,b,h,r,area);
+             }
+        else if(area == "parallelogram"){
+
+                 std::cout << "Enter the breath: ";
+                 std::cin >> b;
+
+                 std::cout << "Enter the height: ";
+                 std::cin >> h;
+
+                 if(std::cin.fail()){
+                    std::cout << "\nThe breath you entered is not vaild.\n";
+                   
+            }
+                area_calculations(l,b,h,r,area);
+             }
+        else if(area == "square"){
+                std::cout << "Enter the length: ";
+                std::cin >> l;
+                  if(std::cin.fail()){
+                    std::cout << "\nThe breath you entered is not vaild.\n";
+                    
+            }
+                area_calculations(l,b,h,r,area);
+            }
+        else{
+            std::cout << "Error: The request is invaild.";
+            }
+}
 
 //basic calculations//
 void addition(){
@@ -208,34 +269,29 @@ void cube_root(){
 }
 
 
-//area input//
-void area_type(){
-    std::string area;
-    
-    std::cout << "Enter the object: ";
-    std::cin >> area;
+//area calculations//
 
+void area_calculations(float l,float b,float h,float r,std::string area){
+  
     if(area == "rectangle"){
-        area_rectangle();
+        std::cout << "The area is " << 0.5*(l*b);
     }
 
     else if(area == "triangle"){
-        area_triangle();
+        std::cout << "The area is " << l*b;
     }
 
     else if(area == "circle"){
-        area_circle();
+        std::cout << "The area is " << 3.14*pow(r,2);
     }
     
-    
-    
     else if(area == "parallelogram"){
-        area_parallelogram();
+        std::cout << "The area is " << b*h;
     }
     
     
     else if(area == "square"){
-        area_circle();
+        std::cout << "The area is " << pow(l,2);
     }
     
     
@@ -244,61 +300,4 @@ void area_type(){
         std::cout << "This calculator only supports area for the following objects: \n\n•rectangle\t\t•parallelogram\n•triangle\t\t•square\n•circle";
     }
 
-}
-
-
-//area calculations//
-void area_triangle(){
-    
-    float l,b;
-
-    std::cout << "Enter the length: ";
-    std::cin >> l;
-
-    std::cout << "Enter the breath: ";
-    std::cin >> b;
-
-    std::cout << "The area is " << l*b;
-}
-
-void area_rectangle(){
-    float l,b;
-
-    std::cout << "Enter the length: ";
-    std::cin >> l;
-
-    std::cout << "Enter the breath: ";
-    std::cin >> b;
-
-    std::cout << "The area is " << 0.5*(l*b);
-}
-
-void area_circle(){
-    float r;
-
-    std::cout << "Enter the radius: ";
-    std::cin >> r;
-
-    std::cout << "The area is " << 3.14*pow(r,2);
-}
-
-void area_parallelogram(){
-    float b,h;
-
-    std::cout << "Enter the breath: ";
-    std::cin >> b;
-
-    std::cout << "Enter the height: ";
-    std::cin >> h;
-
-    std::cout << "The area is " << b*h;
-}
-
-void area_square(){
-    float l,b;
-
-    std::cout << "Enter the length: ";
-    std::cin >> l;
-
-    std::cout << "The area is " << pow(l,2);
 }
