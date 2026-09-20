@@ -23,21 +23,24 @@ void square();
 
 int main(){
 
-    std::cout << "\t\tThis is a simple Calculator\n";
-    std::cout << "\t\t\t\tBuild by Sarthak Khanal\n";
+    std::cout << "\t\t********************CALCULATOR****************\n";
+    std::cout << "\t\t\t\t\t-build by Sarthak Khanal\n\n";
 
-    std::cout << "Enter what do you want to calculate(+,-,/,*,! and more ): ";
+    std::cout << "This calculation can do the following operations: \n\n•addition\t\t•factorial\t\t•area\n•subtraction\t\t•square\n•multiplication\t\t•square root\n•division\t\t•cube\n•modulus\t\t•cube root\n\n";
+    std::cout << "Enter the operation: ";
     std::string operation;
     std::getline(std::cin,operation);
     std::cout << "Selected the operation as " << operation << "\n";
     
     choice(operation);
 
+     std::cout << "\n**************************************\n";
     return 0;
 }
 
+//condition check//
 void choice(std::string operation){
-    if(operation == "addition" || operation == "+"){
+    if(operation == "addition" || operation == "+" || operation == "add" || operation == "sum"){
         addition();
     }
     else if(operation == "subtraction" || operation == "-"||operation == "sub"){
@@ -79,11 +82,14 @@ void choice(std::string operation){
     }
 
     else {
-        std::cout << "The operation you selected is not available";
+        std::cout << "\nError: The operation" << operation <<  "selected is not vaild.\n\n";
+        std::cout << "This calculation only supports the following operations: \n\n•addition\t\t•factorial\t\t•area\n•subtraction\t\t•square\n•multiplication\t\t•square root\n•division\t\t•cube\n•modulus\t\t•cube root\n";
     }
     
 }
 
+
+//basic calculations//
 void addition(){
     float num1,num2;
 
@@ -201,6 +207,8 @@ void cube_root(){
     std::cout << "The factorial is " << cubrt;
 }
 
+
+//area input//
 void area_type(){
     std::string area;
     
@@ -232,11 +240,14 @@ void area_type(){
     
     
     else {
-        std::cout << "The result you are required is not vaild for this program";
+        std::cout << "Error: cannot calculate area of "<< area << "the requested object.";\
+        std::cout << "This calculator only supports area for the following objects: \n\n•rectangle\t\t•parallelogram\n•triangle\t\t•square\n•circle";
     }
 
 }
 
+
+//area calculations//
 void area_triangle(){
     
     float l,b;
