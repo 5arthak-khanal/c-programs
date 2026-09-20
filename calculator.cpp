@@ -2,18 +2,7 @@
 #include <math.h>
 
 void choice(std::string operation);
-void addition();
-void subtraction();
-void multiplication();
-void division();
-void modulus();
-void factorial_input();
-int factorial_calculation(int num);
-void square();
-void square_root();
-void cube();
-void cube_root();
-void area_inputs();
+void double_calculation(std::string operation,float num1,float num2,int num);
 void area_calculations(float l,float b,float h,float r,std::string area);
 
 
@@ -24,7 +13,7 @@ int main(){
     std::cout << "\t\t********************CALCULATOR****************\n";
     std::cout << "\t\t\t\t\t-build by Sarthak Khanal\n\n";
 
-    std::cout << "This calculation can do the following operations: \n\n•addition\t\t•factorial\t\t•area\n•subtraction\t\t•square\n•multiplication\t\t•square root\n•division\t\t•cube\n•modulus\t\t•cube root\n\n";
+    std::cout << "This calculation can do the following operations: \n\n•addition\t\t•square\n•subtraction\t\t•sqaure root\n•multiplication\t\t•cube\n•division\t\t•cube root\n•modulus\t\t•area\n";
     std::cout << "Enter the operation: ";
     std::string operation;
     std::getline(std::cin,operation);
@@ -36,59 +25,41 @@ int main(){
     return 0;
 }
 
-//condition check//
-void choice(std::string operation){
-    if(operation == "addition" || operation == "+" || operation == "add" || operation == "sum"){
-        addition();
-    }
-    else if(operation == "subtraction" || operation == "-"||operation == "sub"){
-        subtraction();
-    }
-    else if(operation == "multiply" || operation == "multiplication" || operation == "*"){
-        multiplication();
-    }
-        
-    
-    else if(operation == "divide" || operation == "division" || operation == "/"){
-        division();
-    }
-        
-    else if(operation == "modulus" || operation == "%"){
-        modulus();
-    }
-    else if(operation == "factorial" || operation == "!"){
-        factorial_input();
-    }
-        
-    else if(operation == "cube"){
-        cube();
-    }
-        
-    else if(operation == "square"){
-        square();
-    }
-        
-    else if(operation == "cube root"){
-        cube_root();
-    }
-    else if(operation == "square root"){
-        square_root();
-    }
-
-    else if(operation == "area"){
-        area_inputs();
-    }
-
-    else {
-        std::cout << "\nError: The operation" << operation <<  "selected is not vaild.\n\n";
-        std::cout << "This calculation only supports the following operations: \n\n•addition\t\t•factorial\t\t•area\n•subtraction\t\t•square\n•multiplication\t\t•square root\n•division\t\t•cube\n•modulus\t\t•cube root\n";
-    }
-    
-}
-
 //inputs//
-void area_inputs(){
-     float l,b,h,r;
+void choice(std::string operation){
+    if(operation == "addition" || operation == "+" || operation == "add" || operation == "sum" || operation == "subtraction" || operation == "-" || operation == "sub" || operation == "multiply" || operation == "multiplication" || operation == "*" || operation == "divide" || operation == "division" || operation == "/" || operation == "modulus" || operation == "%"){
+        float num1,num2;
+
+        std::cout << "Enter the first number: ";
+        std::cin >> num1;
+
+        if(std::cin.fail()){
+            std::cout << "\nThe breath you entered is not vaild.\n";
+        }
+
+        std::cout << "Enter the second number: ";
+        std::cin >> num2;
+
+        if(std::cin.fail()){
+            std::cout << "\nThe breath you entered is not vaild.\n";
+        }
+
+    }
+     
+   
+    else if(operation == "square" ||  operation == "cube" || operation == "cube root" || operation == "square root"){
+        float num;
+
+        std::cout << "Enter the number: ";
+        std::cin >> num;
+
+        if(std::cin.fail()){
+            std::cout << "\nThe breath you entered is not vaild.\n";
+        }
+    }
+    
+    else if(operation == "area"){
+      float l,b,h,r;
      std::string area;
     
      std::cout << "Enter the object: ";
@@ -139,135 +110,57 @@ void area_inputs(){
         else if(area == "square"){
                 std::cout << "Enter the length: ";
                 std::cin >> l;
+
                   if(std::cin.fail()){
                     std::cout << "\nThe breath you entered is not vaild.\n";
                     
             }
                 area_calculations(l,b,h,r,area);
             }
-        else{
-            std::cout << "Error: The request is invaild.";
-            }
+        }
+
+
+    
+
+     else {
+        std::cout << "\nError: The operation " << operation <<  " selected is not vaild.\n\n";
+        std::cout << "This calculation only supports the following operations: \n\n•addition\t\t•square\n•subtraction\t\t•sqaure root\n•multiplication\t\t•cube\n•division\t\t•cube root\n•modulus\t\t•area\n";
+    }
+    
 }
 
 //basic calculations//
-void addition(){
-    float num1,num2;
+void double_calculation(std::string operation,float num1,float num2,int num){
 
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
-
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-
-    std::cout << "The sum is " << num1 + num2;
-}
-
-void subtraction(){
-    float num1,num2;
-
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
-
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-    
-    std::cout << "The sub is " << num1 - num2;
-}
-
-void multiplication(){
-    float num1,num2;
-
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
-
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-
-    std::cout << "The multiplication is " << num1 * num2;
-}
-
-void division(){
-    float num1,num2;
-
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
-
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-
-    std::cout << "The division is " << num1 / num2;
-}
-
-void modulus(){
-    int num1,num2;
-
-    std::cout << "Enter the first number: ";
-    std::cin >> num1;
-
-    std::cout << "Enter the second number: ";
-    std::cin >> num2;
-
-    std::cout << "The modulus is " << num1 % num2;
-}
-
-void factorial_input(){
-    int num;
-    
-    std::cout << "Enter the number you want to factorial of: ";
-    std::cin >> num;
-
-    std::cout << "The factorial is " << factorial_calculation(num);
-}
-int factorial_calculation(int num){
-    
-
-    if(num>1){
-        return (num*factorial_calculation(num-1));
+    if(operation == "addition" || operation == "+" || operation == "add" || operation == "sum"){
+        std::cout << "The sum is " << num1 + num2;
     }
-    else
-    { 
-        return (1);
+    else if(operation == "subtraction" || operation == "-" || operation == "sub"){
+        std::cout << "The sum is " << num1 - num2;
+    }
+    else if(operation == "multiply" || operation == "multiplication" || operation == "*"){
+        std::cout << "The sum is " << num1 * num2;
+    }
+    else if(operation == "divide" || operation == "division" || operation == "/" ){
+        std::cout << "The sum is " << num1 / num2;
+    }
+    else if(operation == "modulus" || operation == "%"){
+        std::cout << "The sum is " << (int)num1 % (int)num2;
+    }
+    else if(operation == "square"){
+        std::cout << "The square is " << pow(num,2);
+    }
+    else if(operation == "cube"){
+        std::cout << "The cube is " << pow(num,3);
+    }
+    else if(operation == "cube root"){
+        std::cout << "The cube root is " << cbrt(num);
+    }
+    else if(operation == "square root"){
+        std::cout << "The square root is " << sqrt(num);
     }
 
 }
-
-void square(){
-    float num,sqre;
-    
-    std::cout << "Enter the number you want to square of: ";
-    std::cin >> num;
-    sqre=pow(num,2);
-    std::cout << "The factorial is " << sqre;
-}
-
-void square_root(){
-    float num,squrt;
-    
-    std::cout << "Enter the number you want to factorial of: ";
-    std::cin >> num;
-    squrt=sqrt(num);
-    std::cout << "The factorial is " << squrt;
-}
-
-void cube(){
-    float num,cube;
-    
-    std::cout << "Enter the number you want to cube of: ";
-    std::cin >> num;
-    cube=pow(num,3);
-    std::cout << "The factorial is " << cube;
-}
-
-void cube_root(){
-    float num,cubrt;
-    
-    std::cout << "Enter the number you want to cube root of: ";
-    std::cin >> num;
-    cubrt=cbrt(num);
-    std::cout << "The factorial is " << cubrt;
-}
-
 
 //area calculations//
 
